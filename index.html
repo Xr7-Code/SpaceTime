@@ -272,8 +272,8 @@
         const pulseAngle = spaceProgress * 360;
         pulseHand.setAttribute('transform', `rotate(${pulseAngle.toFixed(3)} 300 300)`);
 
-        // 3. Spark Hand (360° per pulse = 9 min / 540s; 10 sparks per pulse = 54s per spark)
-        const pulseProgress = spaceProgress; // sweep indices into the pulse ring each space
+        // 3. Spark Hand (10 sparks per pulse = 54s per spark; one full revolution per pulse = 9 min)
+        const pulseProgress = (spaceProgress * 10) % 1;
         const sparkAngle = pulseProgress * 360;
         sparkHand.setAttribute('transform', `rotate(${sparkAngle.toFixed(3)} 300 300)`);
 
